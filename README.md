@@ -49,7 +49,21 @@ If you use results derived from this repository, please cite:
 
 We compared these annotations to the Schultz et al. (2023) chrom files and gene-group list. The annotations are consistent with the versions used in that study.
 
-My raw output when running the above script yields:
+
+- **Chrom overlap (protein IDs):**
+  - **CFR:** 8408 / 8416 proteins overlap (99.90% of old; 98.51% of new)
+  - **COW:** 8742 / 8791 proteins overlap (99.44% of old; 100.00% of new)
+  - **SRO:** 11669 / 11669 proteins overlap (100.00% of old; 99.52% of new)
+
+All of the gene families in the three species from the ALGs defined in Schultz et al. (2023) are present in these annotations. These annotations therefore do not affect the conclusions of Schultz et al. (2023).
+
+- **Gene-group presence (UnicellMetazoanLGs.rbh):**
+  - **CFR:** 55 / 55 groups present (100.00%)
+  - **COW:** 213 / 213 groups present (100.00%)
+  - **SRO:** 150 / 150 groups present (100.00%)
+
+
+My raw output when running the above script, `run_annotation.sh`, yields:
 
 ```
 ./CFR_summary.txt
@@ -91,15 +105,3 @@ CFR_present	55
 CFR_total	55
 CFR_fraction	1.000000
 ```
-
-- **Chrom overlap (protein IDs):**
-  - **CFR:** 8408 / 8416 proteins overlap (99.90% of old; 98.51% of new)
-  - **COW:** 8742 / 8791 proteins overlap (99.44% of old; 100.00% of new)
-  - **SRO:** 11669 / 11669 proteins overlap (100.00% of old; 99.52% of new)
-
-All of the gene families in the three species from the ALGs defined in Schultz et al. (2023) are present in these annotations. Therefore, these annotations do not affect the conclusions of Schultz et al. (2023).
-
-- **Gene-group presence (UnicellMetazoanLGs.rbh):**
-  - **CFR:** 55 / 55 groups present (100.00%)
-  - **COW:** 213 / 213 groups present (100.00%)
-  - **SRO:** 150 / 150 groups present (100.00%)
