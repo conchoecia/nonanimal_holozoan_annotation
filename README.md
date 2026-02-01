@@ -1,13 +1,13 @@
 # Nonanimal holozoan genome annotations
 
-This repository contains genome annotations for the nonanimal holozoan species _Creolimax fragrantissima_, _Capsaspora owczarzaki_, and _Salpingoeca rosetta_. In the [Dryad repository](https://datadryad.org/dataset/doi:10.5061/dryad.dncjsxm47) for Schultz et al. (2023), the genome annotation files (.gff) were not included with the genome assemblies (.fa), protein fasta files (.pep), and gene coordinate files (.chrom). This repository newly generates the annotation files (.gff) for comparative genomics studies.
+This repository contains genome annotations for the nonanimal holozoan species _Creolimax fragrantissima_, _Capsaspora owczarzaki_, and _Salpingoeca rosetta_. In the [Dryad repository](https://datadryad.org/dataset/doi:10.5061/dryad.dncjsxm47) for [Schultz et al. (2023)](https://www.nature.com/articles/s41586-023-05936-6), the genome annotation files (.gff) were not included with the genome assemblies (.fa), protein fasta files (.pep), and gene coordinate files (.chrom). This repository newly generates the annotation files (.gff) for comparative genomics studies.
 
 
 `READ THIS  vvvvvvvvvvvvvv`
 
 The generated annotations are available in the `annotations/` directory (GFF, PEP, and CHROM files for each species).
 
-These are annotations for the chromosome-scale assemblies we published in 2023, where I generated Hi-C data from ATCC samples, then scaffolded and annotated existing assemblies to chromosome scale with Jessen Bredeson.
+These are annotations for the chromosome-scale assemblies we published in 2023, where I generated Hi-C data from ATCC samples, then scaffolded and annotated existing assemblies to chromosome scale with Jessen Bredeson. [Please see the manuscript](https://www.nature.com/articles/s41586-023-05936-6) for citations and methods about the original genome assemblies and the scaffolding.
 - _Capsaspora owczarzaki_: [GCA_033442345.1_MBARI_Capsaspora_owczarzaki_A_v1_genomic.fna.gz](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_033442345.1/)
 - _Creolimax fragrantissima_: [GCA_033442365.1_MBARI_Creolimax_fragrantissima_v1_genomic.fna.gz](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_033442365.1/)
 - _Salpingoeca rosetta_: [GCA_033442325.1_MBARI_Salpingoeca_rosetta_v1_genomic.fna.gz](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_033442325.1/)
@@ -28,11 +28,11 @@ This workflow requires the following software to be available on your `PATH` (or
 
 If you use the chrom files in `Schultzetal2023/`, cite the Dryad dataset as the source:
 
-- Schultz, D. T., Haddock, S. H. D., Bredeson, J. V., Green, R. E., Simakov, O., & Rokhsar, D. S. (2023). Data for: Ancient gene linkages support ctenophores as sister to other animals [Dataset]. Dryad. https://doi.org/10.5061/dryad.dncjsxm47
+- Schultz, D. T., Haddock, S. H. D., Bredeson, J. V., Green, R. E., Simakov, O., & Rokhsar, D. S. (2023). Data for: Ancient gene linkages support ctenophores as sister to other animals [Dataset]. Dryad. [https://doi.org/10.5061/dryad.dncjsxm47](https://doi.org/10.5061/dryad.dncjsxm47)
 
 If you use results derived from this repository, please cite:
 
-- Schultz, D. T., Haddock, S. H., Bredeson, J. V., Green, R. E., Simakov, O., & Rokhsar, D. S. (2023). Ancient gene linkages support ctenophores as sister to other animals. Nature, 618(7963), 110-117. https://www.nature.com/articles/s41586-023-05936-6
+- Schultz, D. T., Haddock, S. H., Bredeson, J. V., Green, R. E., Simakov, O., & Rokhsar, D. S. (2023). Ancient gene linkages support ctenophores as sister to other animals. Nature, 618(7963), 110-117. [https://www.nature.com/articles/s41586-023-05936-6](https://www.nature.com/articles/s41586-023-05936-6)
 
 ## Comparison with Schultz et al. (2023) .chrom files
 
