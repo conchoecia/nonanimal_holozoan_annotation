@@ -317,6 +317,37 @@ verify_against_annotations() {
     return $status
   }
 
+  diff_fasta_normalized() {
+    local file="$1"
+    local ref="$2"
+    local tmp1="${file}.tmp.$$"
+    local tmp2="${ref}.tmp.$$"
+    awk '
+      /^>/ {
+        if (seq != "") print header "\t" seq
+        header=$0
+        seq=""
+        next
+      }
+      { gsub(/[[:space:]]/,""); seq=seq $0 }
+      END { if (seq != "") print header "\t" seq }
+    ' "$file" | sort > "$tmp1"
+    awk '
+      /^>/ {
+        if (seq != "") print header "\t" seq
+        header=$0
+        seq=""
+        next
+      }
+      { gsub(/[[:space:]]/,""); seq=seq $0 }
+      END { if (seq != "") print header "\t" seq }
+    ' "$ref" | sort > "$tmp2"
+    diff -q "$tmp1" "$tmp2" >/dev/null
+    local status=$?
+    rm -f "$tmp1" "$tmp2"
+    return $status
+  }
+
   report_mismatch() {
     local file="$1"
     local ref="$2"
@@ -334,6 +365,32 @@ verify_against_annotations() {
       grep -v '^#' "$file" > "$tmp1"
       grep -v '^#' "$ref" > "$tmp2"
       echo "  diff (first 10 lines, comments stripped):"
+      diff -u "$tmp1" "$tmp2" | head -n 10
+      rm -f "$tmp1" "$tmp2"
+    elif [[ "$file" == *.pep ]]; then
+      echo "  diff (first 10 lines, FASTA normalized):"
+      local tmp1="${file}.tmp.$$"
+      local tmp2="${ref}.tmp.$$"
+      awk '
+        /^>/ {
+          if (seq != "") print header "\t" seq
+          header=$0
+          seq=""
+          next
+        }
+        { gsub(/[[:space:]]/,""); seq=seq $0 }
+        END { if (seq != "") print header "\t" seq }
+      ' "$file" | sort > "$tmp1"
+      awk '
+        /^>/ {
+          if (seq != "") print header "\t" seq
+          header=$0
+          seq=""
+          next
+        }
+        { gsub(/[[:space:]]/,""); seq=seq $0 }
+        END { if (seq != "") print header "\t" seq }
+      ' "$ref" | sort > "$tmp2"
       diff -u "$tmp1" "$tmp2" | head -n 10
       rm -f "$tmp1" "$tmp2"
     else
@@ -356,6 +413,14 @@ verify_against_annotations() {
     fi
     if [[ "$f" == *.gff ]]; then
       if ! diff_gff_ignore_comments "$f" "$ref"; then
+        echo "Mismatch: $f"
+        report_mismatch "$f" "$ref"
+        mismatches=1
+      fi
+      continue
+    fi
+    if [[ "$f" == *.pep ]]; then
+      if ! diff_fasta_normalized "$f" "$ref"; then
         echo "Mismatch: $f"
         report_mismatch "$f" "$ref"
         mismatches=1
