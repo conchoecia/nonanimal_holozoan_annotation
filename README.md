@@ -4,7 +4,13 @@ This repository contains genome annotations for the nonanimal holozoan species _
 
 ## Requirements
 
-This workflow requires [Liftoff](https://github.com/agshumate/Liftoff) to lift over annotations between assemblies. Ensure Liftoff is installed and available on your `PATH` (or via your activated environment) before running `run_annotation.sh`.
+This workflow requires the following software to be available on your `PATH` (or in your activated environment) before running `run_annotation.sh`:
+
+- [Liftoff](https://github.com/agshumate/Liftoff)
+- [gffread](https://github.com/gpertea/gffread) (the script can clone/build it if `git` + `make` are available)
+- `samtools` (for `.pep` extraction)
+- `wget`, `gzip`, and `tar` (for downloads and unpacking)
+- `python3` (for comparison steps)
 
 ## Citation
 

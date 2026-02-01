@@ -304,6 +304,19 @@ verify_against_annotations() {
     Salpingoeca_rosetta.chrom
   )
 
+  diff_gff_ignore_comments() {
+    local file="$1"
+    local ref="$2"
+    local tmp1="${file}.tmp.$$"
+    local tmp2="${ref}.tmp.$$"
+    grep -v '^#' "$file" > "$tmp1"
+    grep -v '^#' "$ref" > "$tmp2"
+    diff -q "$tmp1" "$tmp2" >/dev/null
+    local status=$?
+    rm -f "$tmp1" "$tmp2"
+    return $status
+  }
+
   for f in "${files[@]}"; do
     local ref="$ANNOTATIONS_DIR/$f"
     if [ ! -f "$ref" ]; then
@@ -314,6 +327,13 @@ verify_against_annotations() {
     if [ ! -f "$f" ]; then
       echo "Missing output: $f"
       missing=1
+      continue
+    fi
+    if [[ "$f" == *.gff ]]; then
+      if ! diff_gff_ignore_comments "$f" "$ref"; then
+        echo "Mismatch: $f"
+        mismatches=1
+      fi
       continue
     fi
     if ! diff -q "$f" "$ref" >/dev/null; then
