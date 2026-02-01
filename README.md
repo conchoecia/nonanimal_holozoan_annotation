@@ -7,7 +7,7 @@ This repository contains genome annotations for the nonanimal holozoan species _
 
 The generated annotations are available in the `annotations/` directory (GFF, PEP, and CHROM files for each species).
 
-These are annotations for the chromosome-scale assemblies we published in 2023, where I generated Hi-C data from ATCC samples, then scaffolded and annotated existing assemblies to chromosome scale with Jessen Bredeson. [Please see the manuscript](https://www.nature.com/articles/s41586-023-05936-6) for citations and methods about the original genome assemblies and the scaffolding.
+These are annotations for the chromosome-scale assemblies we published in 2023, where I generated Hi-C data from ATCC samples while in Steve Haddock's lab at MBARI, then scaffolded and annotated existing assemblies to chromosome scale with Jessen Bredeson. [Please see the manuscript](https://www.nature.com/articles/s41586-023-05936-6) for citations and methods about the original genome assemblies and the scaffolding.
 - _Capsaspora owczarzaki_: [GCA_033442345.1_MBARI_Capsaspora_owczarzaki_A_v1_genomic.fna.gz](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_033442345.1/)
 - _Creolimax fragrantissima_: [GCA_033442365.1_MBARI_Creolimax_fragrantissima_v1_genomic.fna.gz](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_033442365.1/)
 - _Salpingoeca rosetta_: [GCA_033442325.1_MBARI_Salpingoeca_rosetta_v1_genomic.fna.gz](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_033442325.1/)
