@@ -49,6 +49,49 @@ If you use results derived from this repository, please cite:
 
 We compared these annotations to the Schultz et al. (2023) chrom files and gene-group list. The annotations are consistent with the versions used in that study.
 
+My raw output when running the above script yields:
+
+```
+./CFR_summary.txt
+new_file	Creolimax_fragrantissima.chrom
+old_file	schultz2023/CFR.chrom
+new_proteins	8535
+old_proteins	8416
+intersection	8408
+intersection_frac_new	0.985120
+intersection_frac_old	0.999049
+
+./COW_summary.txt
+new_file	Capsaspora_owczarzaki.chrom
+old_file	schultz2023/COW.chrom
+new_proteins	8742
+old_proteins	8791
+intersection	8742
+intersection_frac_new	1.000000
+intersection_frac_old	0.994426
+
+./SRO_summary.txt
+new_file	Salpingoeca_rosetta.chrom
+old_file	schultz2023/SRO.chrom
+new_proteins	11725
+old_proteins	11669
+intersection	11669
+intersection_frac_new	0.995224
+intersection_frac_old	1.000000
+
+./UnicellMetazoanLGs_summary.txt
+rows	312
+COW_present	213
+COW_total	213
+COW_fraction	1.000000
+SRO_present	150
+SRO_total	150
+SRO_fraction	1.000000
+CFR_present	55
+CFR_total	55
+CFR_fraction	1.000000
+```
+
 - **Chrom overlap (protein IDs):**
   - **CFR:** 8408 / 8416 proteins overlap (99.90% of old; 98.51% of new)
   - **COW:** 8742 / 8791 proteins overlap (99.44% of old; 100.00% of new)
