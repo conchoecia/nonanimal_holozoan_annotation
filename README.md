@@ -16,13 +16,24 @@ These are annotations for the chromosome-scale assemblies we published in 2023, 
 
 ## Requirements
 
-This workflow requires the following software to be available on your `PATH` (or in your activated environment) before running `run_annotation.sh`:
+IF you want to generate the annotations from scratch for yourself for comparison, the bash script `run_annotation.sh` will generate the same files that are in the `./annotations` directory.
+This script requires the following software to be available on your `PATH` (or in your activated environment) before running. 
 
 - [Liftoff](https://github.com/agshumate/Liftoff)
 - [gffread](https://github.com/gpertea/gffread) (the script can clone/build it if `git` + `make` are available)
 - `samtools` (for `.pep` extraction)
 - `wget`, `gzip`, and `tar` (for downloads and unpacking)
 - `python3` (for comparison steps)
+
+run with:
+
+```sh
+git clone https://github.com/conchoecia/nonanimal_holozoan_annotation.git
+cd nonanimal_holozoan_annotation
+bash run_annotation.sh
+```
+
+This will generate files comparing the annotations published here with the .chrom files published in the 2023 Dryad repository: [Dryad repository](https://datadryad.org/dataset/doi:10.5061/dryad.dncjsxm47)
 
 ## Citation
 
