@@ -317,6 +317,31 @@ verify_against_annotations() {
     return $status
   }
 
+  report_mismatch() {
+    local file="$1"
+    local ref="$2"
+    local size1 size2 md51 md52
+    size1=$(wc -c < "$file" 2>/dev/null || echo "NA")
+    size2=$(wc -c < "$ref" 2>/dev/null || echo "NA")
+    md51=$(md5sum "$file" 2>/dev/null | awk '{print $1}')
+    md52=$(md5sum "$ref" 2>/dev/null | awk '{print $1}')
+    echo "  sizes: $size1 (output) vs $size2 (ref)"
+    echo "  md5:   $md51 (output)"
+    echo "         $md52 (ref)"
+    if [[ "$file" == *.gff ]]; then
+      local tmp1="${file}.tmp.$$"
+      local tmp2="${ref}.tmp.$$"
+      grep -v '^#' "$file" > "$tmp1"
+      grep -v '^#' "$ref" > "$tmp2"
+      echo "  diff (first 10 lines, comments stripped):"
+      diff -u "$tmp1" "$tmp2" | head -n 10
+      rm -f "$tmp1" "$tmp2"
+    else
+      echo "  diff (first 10 lines):"
+      diff -u "$file" "$ref" | head -n 10
+    fi
+  }
+
   for f in "${files[@]}"; do
     local ref="$ANNOTATIONS_DIR/$f"
     if [ ! -f "$ref" ]; then
@@ -332,12 +357,14 @@ verify_against_annotations() {
     if [[ "$f" == *.gff ]]; then
       if ! diff_gff_ignore_comments "$f" "$ref"; then
         echo "Mismatch: $f"
+        report_mismatch "$f" "$ref"
         mismatches=1
       fi
       continue
     fi
     if ! diff -q "$f" "$ref" >/dev/null; then
       echo "Mismatch: $f"
+      report_mismatch "$f" "$ref"
       mismatches=1
     fi
   done
