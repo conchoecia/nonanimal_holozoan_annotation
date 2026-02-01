@@ -4,7 +4,9 @@ This repository contains genome annotations for the nonanimal holozoan species _
 
 
 `READ THIS  vvvvvvvvvvvvvv`
+
 The generated annotations are available in the `annotations/` directory (GFF, PEP, and CHROM files for each species).
+
 `READ THIS  ^^^^^^^^^^^^^^`
 
 ## Requirements
