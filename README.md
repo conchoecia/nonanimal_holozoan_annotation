@@ -29,7 +29,7 @@ If you use results derived from this repository, please cite:
 
 - Schultz, D. T., Haddock, S. H., Bredeson, J. V., Green, R. E., Simakov, O., & Rokhsar, D. S. (2023). Ancient gene linkages support ctenophores as sister to other animals. Nature, 618(7963), 110-117. https://www.nature.com/articles/s41586-023-05936-6
 
-## Validation against Schultz et al. (2023)
+## Comparison with Schultz et al. (2023) .chrom files
 
 We compared these annotations to the Schultz et al. (2023) chrom files and gene-group list. The annotations are consistent with the versions used in that study.
 
