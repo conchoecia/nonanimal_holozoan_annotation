@@ -24,6 +24,22 @@ wget 'https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/033/442/325/GCA_033442325.1_M
 
 `READ THIS  ^^^^^^^^^^^^^^`
 
+
+## Chromosome IDs
+
+The chromosome-scale scaffolds and their lengths for each species are:
+
+```
+# Salpingoeca rosetta: JAWQFM010000001.1 to JAWQFM010000036.1 (the first 36 scaffolds are chromosomes)
+bioawk -cfastx '{print($name, length($seq))}' GCA_033442325.1_MBARI_Salpingoeca_rosetta_v1_genomic.fna | head -36
+
+# Capsaspora owczarzaki: JAWQFK010000001.1 to JAWQFK010000016.1 (each of the 16 scaffolds is a chromosome)
+bioawk -cfastx '{print($name, length($seq))}' GCA_033442345.1_MBARI_Capsaspora_owczarzaki_A_v1_genomic.fna
+
+# Creolimax fragrantissima: JAWQFL010000001.1 to JAWQFL010000027.1 (the first 27 scaffolds are chromosomes)
+bioawk -cfastx '{print($name, length($seq))}' GCA_033442365.1_MBARI_Creolimax_fragrantissima_v1_genomic.fna | head -27
+```
+
 ## Requirements
 
 IF you want to generate the annotations from scratch for yourself for comparison, the bash script `run_annotation.sh` will generate the same files that are in the `./annotations` directory.
